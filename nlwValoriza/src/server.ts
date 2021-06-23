@@ -1,25 +1,15 @@
-import express, { request, response } from "express";
+import "reflect-metadata";
+import express from "express";
+import {router} from "./routes"
+
+//quando é um arquivo index eu não preciso especificar o arquivo
+import "./database";
 
 //@types/express
 const app = express();
 
-/**
- * get => utilizado para buscar uma informacao dentro da api
- * post => utilizado para inserir ou criar alguma informacao dentro da api
- * put => utilizado para alterar alguma informacao dentro da api
- * delete => utilizado para deletar alguma informação dentro da api
- * path => utilizado para alterar uma informacao especifica, um campo especifico
- */
-
-app.get("/test",(request,response)=>{
-    //request => entrando
-    //response => saindo
-    return response.send("Ola NLW get");
-    });
-
-app.post("/test-post",(request,response)=>{
-    return response.send("Ola NLW post");
-});
+app.use(express.json());
+app.use(router);
 
 //http://localhost:3000
 app.listen(3000,()=>console.log("Server is running NLW"));
