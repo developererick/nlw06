@@ -18,6 +18,7 @@ app.get("/test", function (request, response) {
     //response => saindo
     return response.send("Ola NLW get");
 });
+
 app.post("/test-post", function (request, response) {
     return response.send("Ola NLW post");
 });
